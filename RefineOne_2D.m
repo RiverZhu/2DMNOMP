@@ -42,7 +42,7 @@ function [y_residue_matrix, omega_hat, ghat] = RefineOne_2D(y_matrix, omega_est,
     
 
     Step = Hessian_S \ grad_S;
-    if max(abs(Step)) < 2 * pi / max(Nx, My) / 4
+    if max(abs(Step)) < 2 * pi / min(Nx, My) / 4
         omega_hat_new = omega_est - Step';
         % sprintf('Newton is effective')
     else
